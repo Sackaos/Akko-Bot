@@ -1,0 +1,32 @@
+{
+    "help": {
+        "description": "This is the help command.\n**Usage:** `~help (optional)<arg> (optional)<arg> ...`\n",
+        "arguments": [
+            {
+                "name": "p",
+                "description": "this is the p command",
+                "arguments": [
+                    {
+                        "name": "v",
+                        "description": "this is the v argument",
+                        "arguments": [
+                            {
+                                "name": "bassboosted",
+                                "description" : "the bass is very loud"
+                            },
+                            {
+                                "name": "earrip",
+                                "description" : "this is very nice for the ears"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "q",
+                "description": "this is the q command",
+                "arguments": []
+            }
+        ]
+    }
+}

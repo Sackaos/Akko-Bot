@@ -1,0 +1,16 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "tutorial ",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaos",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "nodemon": "^2.0.7"
+  }
+}
