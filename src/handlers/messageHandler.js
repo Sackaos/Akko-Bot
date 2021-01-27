@@ -1,4 +1,11 @@
 const fs = require("fs");
+const path = require("path");
+
+const loadHelpJson = () => {
+  return JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../../", "data.json"))
+  ).help;
+};
 
 const getCmdOfArgs = (arrArgs, cmdName) => {
   for (let i = 0; i < arrArgs.length; i++) {
@@ -9,13 +16,11 @@ const getCmdOfArgs = (arrArgs, cmdName) => {
 };
 
 const helpCmd = (args) => {
-  let rawdata = fs.readFileSync("./help.json");
-  let parseddata = JSON.parse(rawdata);
-  let helpData = parseddata.help;
+  let helpJSON = loadHelpJson();
 
   if (args.length) {
     let resp = "";
-    const argData = getCmdOfArgs(helpData.arguments, args[0]);
+    const argData = getCmdOfArgs(helpJSON.arguments, args[0]);
     if (argData) {
       resp += `**${argData.name}** -- *${argData.description}*\n`;
       resp += "Children:\n";
@@ -28,9 +33,9 @@ const helpCmd = (args) => {
     }
     return resp;
   } else {
-    let resp = helpData.description + "\n";
-    for (let i = 0; i < helpData.arguments.length; i++) {
-      resp += `**${helpData.arguments[i].name}** -- *${helpData.arguments[i].description}*\n`;
+    let resp = helpJSON.description + "\n";
+    for (let i = 0; i < helpJSON.arguments.length; i++) {
+      resp += `**${helpJSON.arguments[i].name}** -- *${helpJSON.arguments[i].description}*\n`;
     }
     return resp;
   }

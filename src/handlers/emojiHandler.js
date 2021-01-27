@@ -3,30 +3,32 @@ const fs = require("fs");
 const path = require("path");
 
 const loadEmojiJson = () => {
-  return JSON.parse(fs.readFileSync(path.join(__dirname, "emoji.json")));
+  return JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../../", "data.json"))
+  ).emoji;
 };
 
 const emojiCreateHandler = (emoji, client) => {
-  const emojiData = loadEmojiJson();
-  let msgToSend = emojiData.emojiCreate.response;
+  const emojiJSON = loadEmojiJson();
+  let msgToSend = emojiJSON.emojiCreate.response;
 
-  if (emojiData.emojiCreate.showEmoji)
+  if (emojiJSON.emojiCreate.showEmoji)
     msgToSend += `<:${emoji.name}:${emoji.id}>`;
 
   discordUtility.sendMsgToChannel(client, msgToSend);
 };
 
 const emojiDeleteHandler = (emoji, client) => {
-  const emojiData = loadEmojiJson();
-  let msgToSend = emojiData.emojiDelete.response;
+  const emojiJSON = loadEmojiJson();
+  let msgToSend = emojiJSON.emojiDelete.response;
   msgToSend = msgToSend.replace("|emojiname|", emoji.name);
 
   discordUtility.sendMsgToChannel(client, msgToSend);
 };
 
 const emojiUpdateHandler = (oldEmoji, newEmoji, client) => {
-  const emojiData = loadEmojiJson();
-  let msgToSend = emojiData.emojiUpdate.response;
+  const emojiJSON = loadEmojiJson();
+  let msgToSend = emojiJSON.emojiUpdate.response;
   msgToSend = msgToSend.replace("|oldemojiname|", oldEmoji.name);
   msgToSend = msgToSend.replace("|newemojiname|", newEmoji.name);
 

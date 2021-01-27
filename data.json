@@ -1,4 +1,16 @@
 {
+    "emoji": {
+        "emojiCreate" : {
+            "response" : "New emoji has been added",
+            "showEmoji" : true
+        },
+        "emojiDelete" : {
+            "response" : "Sadly, The :|emojiname|: has been deleted"
+        },
+        "emojiUpdate" : {
+            "response" : ":|oldemojiname|: has been changed to :|newemojiname|:"
+        }
+    },
     "help": {
         "description": "This is the help command.\n**Usage:** `~help (optional)<arg> (optional)<arg> ...`\n",
         "arguments": [
