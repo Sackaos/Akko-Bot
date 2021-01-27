@@ -15,7 +15,11 @@ const emojiCreateHandler = (emoji, client) => {
   if (emojiJSON.emojiCreate.showEmoji)
     msgToSend += `<:${emoji.name}:${emoji.id}>`;
 
-  discordUtility.sendMsgToChannel(client, msgToSend);
+  discordUtility.sendMsgToChannel(
+    client,
+    msgToSend,
+    discordUtility.LOGGER_CHANNEL
+  );
 };
 
 const emojiDeleteHandler = (emoji, client) => {
@@ -23,7 +27,11 @@ const emojiDeleteHandler = (emoji, client) => {
   let msgToSend = emojiJSON.emojiDelete.response;
   msgToSend = msgToSend.replace("|emojiname|", emoji.name);
 
-  discordUtility.sendMsgToChannel(client, msgToSend);
+  discordUtility.sendMsgToChannel(
+    client,
+    msgToSend,
+    discordUtility.LOGGER_CHANNEL
+  );
 };
 
 const emojiUpdateHandler = (oldEmoji, newEmoji, client) => {
@@ -32,7 +40,11 @@ const emojiUpdateHandler = (oldEmoji, newEmoji, client) => {
   msgToSend = msgToSend.replace("|oldemojiname|", oldEmoji.name);
   msgToSend = msgToSend.replace("|newemojiname|", newEmoji.name);
 
-  discordUtility.sendMsgToChannel(client, msgToSend);
+  discordUtility.sendMsgToChannel(
+    client,
+    msgToSend,
+    discordUtility.LOGGER_CHANNEL
+  );
 };
 
 module.exports = { emojiCreateHandler, emojiDeleteHandler, emojiUpdateHandler };

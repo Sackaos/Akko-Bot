@@ -1,16 +1,46 @@
 {
     "emoji": {
-        "emojiCreate" : {
-            "response" : "New emoji has been added",
-            "showEmoji" : true
+        "emojiCreate": {
+            "response": "New emoji has been added",
+            "showEmoji": true
         },
-        "emojiDelete" : {
-            "response" : "Sadly, The :|emojiname|: has been deleted"
+        "emojiDelete": {
+            "response": "Sadly, The :|emojiname|: has been deleted"
         },
-        "emojiUpdate" : {
-            "response" : ":|oldemojiname|: has been changed to :|newemojiname|:"
+        "emojiUpdate": {
+            "response": ":|oldemojiname|: has been changed to :|newemojiname|:"
         }
     },
+    "messages": [
+        {
+            "request": "hehe",
+            "response": {
+                "text": "***EHE TE NANDAYO***",
+                "includes": true
+            }
+        },
+        {
+            "request": "ping",
+            "response": {
+                "text": "pong",
+                "includes": true
+            }
+        },
+        {
+            "request": "ehe te nandayo",
+            "response": {
+                "text": "***THATS MY PHRASE*** :anger:",
+                "includes": false
+            }
+        },
+        {
+            "request": "thats my phrase",
+            "response": {
+                "text": "thats it im out",
+                "includes": false
+            }
+        }
+    ],
     "help": {
         "description": "This is the help command.\n**Usage:** `~help (optional)<arg> (optional)<arg> ...`\n",
         "arguments": [
@@ -24,11 +54,11 @@
                         "arguments": [
                             {
                                 "name": "bassboosted",
-                                "description" : "the bass is very loud"
+                                "description": "the bass is very loud"
                             },
                             {
                                 "name": "earrip",
-                                "description" : "this is very nice for the ears"
+                                "description": "this is very nice for the ears"
                             }
                         ]
                     }
@@ -40,5 +70,10 @@
                 "arguments": []
             }
         ]
+    },
+    "channels" : {
+        "logger" : "745259101130457139",
+        "main" : "744314896468148318",
+        "spam": "745259101130457139"
     }
 }

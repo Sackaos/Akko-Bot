@@ -17,8 +17,12 @@ const mainDiscord = () => {
   const client = new Discord.Client();
 
   client.once("ready", () => {
-    // TODO: decomment when depolying bot
-    // discordUtility.sendMsgToChannel(client, "I am online again!");
+    //TODO: change to MAIN_CHANNEL when ready
+    discordUtility.sendMsgToChannel(
+      client,
+      "I am online again!",
+      discordUtility.LOGGER_CHANNEL
+    );
   });
 
   client.on("message", (messageObj) => messageHandler(messageObj));
