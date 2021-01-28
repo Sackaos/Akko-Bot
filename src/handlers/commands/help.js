@@ -16,7 +16,7 @@ const helpCmdHandler = (args, messageObj) => {
   } else {
     const cmdData = getCmdData("help");
     let response = cmdData.doc;
-    if (args.includs("-v")) {
+    if (args.includes("-v")) {
       response += "\n" + cmdData.docExt;
     }
     response += "\n**Usage:** " + cmdData.usage;

@@ -1,7 +1,7 @@
 {
     "bot": {
-        "name": "Pissbot",
-        "commandPrefixs": ["ss", "piss", "~"]
+        "name": "Akko Bot",
+        "commandPrefixs": ["kk", "akko", "~"]
     },
     "commands": [
         {
