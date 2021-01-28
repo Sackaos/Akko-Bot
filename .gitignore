@@ -1,2 +1,3 @@
 /node_modules
-discordKey.json
+data/keys.json
+data/memory.json
