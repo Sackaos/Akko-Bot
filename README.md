@@ -1,5 +1,11 @@
 # Welcome to Akko Bot
 
+# TODO List
+
+- take the trash out.
+- weekly derpy face (from pc).
+- weekly blessed images form urls.
+
 # Init
 
 add a `discordKey.json` in the main folder with:
