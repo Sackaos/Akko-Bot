@@ -4,7 +4,7 @@ const path = require("path");
 
 const loadEmojiJson = () => {
   return JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../../", "data.json"))
+    fs.readFileSync(path.join(__dirname, "../../", "config.json"))
   ).emoji;
 };
 

@@ -12,11 +12,11 @@ add a `discordKey.json` in the main folder with:
 
 # Customization
 
-Go to the `data.json` to change the text and response of the bot.
+Go to the `config.json` to change the text and response of the bot.
 
 ## Customize the emoji message
 
-In `data.json` change here the reponses:
+In `config.json` change here the reponses:
 
 ```
 "emoji": {

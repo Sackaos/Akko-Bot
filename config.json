@@ -13,6 +13,13 @@
     },
     "messages": [
         {
+            "request": "this is a bucket",
+            "response": {
+                "text": "***DEAR GOD!***\nhttps://www.youtube.com/watch?v=L8FmQoSFys0",
+                "includes": true
+            }
+        },
+        {
             "request": "hehe",
             "response": {
                 "text": "***EHE TE NANDAYO***",
@@ -23,7 +30,7 @@
             "request": "ping",
             "response": {
                 "text": "pong",
-                "includes": true
+                "includes": false
             }
         },
         {
@@ -75,5 +82,8 @@
         "logger" : "745259101130457139",
         "main" : "744314896468148318",
         "spam": "745259101130457139"
+    },
+    "misc": {
+        "botPrefix" : "akko"
     }
 }

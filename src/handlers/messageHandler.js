@@ -5,39 +5,61 @@ const commandHandler = require("./commandHandler");
 
 const loadMessagesJson = () => {
   return JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../../", "data.json"))
+    fs.readFileSync(path.join(__dirname, "../../", "config.json"))
   ).messages;
 };
 
-const getMsgResponse = (msg) => {
+const retrivePrefix = () => {
+  return JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../../", "config.json"))
+  ).misc.botPrefix;
+};
+
+const retrieveMsgResponse = (msg) => {
   const messagesJSON = loadMessagesJson();
 
   let filteredResponses = messagesJSON.filter((message) => {
-    if (message.response.includes) return msg.includes(message.request);
-    else return message.request === msg;
+    if (message.response.includes)
+      return msg.includes(message.request.toLowerCase());
+    else return message.request.toLowerCase() === msg;
   });
 
   return filteredResponses[0]?.response.text;
 };
 
-const messageHandler = (messageObj) => {
+const messageHandler = (messageObj, client, miscObj) => {
+  const msgText = messageObj.content;
+
   //If the message is from the bot - bail out.
   if (messageObj.author.bot) return;
 
-  const cmdPrefix = "~";
+  const cmdPrefix = retrivePrefix();
+
   // Checks if this is a bot cmd -- starts with the cmdPrefix
-  if (
-    messageObj.content.startsWith(cmdPrefix) &&
-    messageObj.content.length > 1
-  ) {
-    let cmdNoPrefix = messageObj.content.slice(cmdPrefix.length);
+  if (isCmd(msgText, cmdPrefix)) {
+    //delete the prefix from the msgText
+    let cmdNoPrefix = msgText.slice(cmdPrefix.length);
+
+    // if starts with a white space delete it
     if (cmdNoPrefix[0] === " ") cmdNoPrefix = cmdNoPrefix.slice(1);
 
-    commandHandler.cmdHandler(cmdNoPrefix, messageObj);
+    commandHandler.cmdHandler(cmdNoPrefix, messageObj, client, miscObj);
   } else {
-    const resp = getMsgResponse(messageObj.content.toLowerCase());
-    if (resp) messageObj.channel.send(resp);
+    const response = retrieveMsgResponse(msgText.toLowerCase());
+    if (response) messageObj.channel.send(response);
   }
+};
+
+const isCmd = (msg, prefix) => {
+  msg = msg.toLowerCase();
+  prefix = prefix.toLowerCase();
+  if (
+    msg.startsWith(prefix) &&
+    msg.length > prefix.length &&
+    msg[prefix.length + 1] !== " "
+  )
+    return true;
+  else return false;
 };
 
 module.exports = { messageHandler };
