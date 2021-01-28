@@ -5,6 +5,7 @@
 - take the trash out.
 - weekly derpy face (from pc).
 - weekly blessed images form urls.
+- sing songs
 
 # Init
 
