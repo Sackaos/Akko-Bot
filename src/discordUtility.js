@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-//TEMP
+//TEMP FOR REF SEND FILE -- IMAGE
 // const sendImage = () => {
 //   messageObj.channel.send("img", {
 //     embed: {

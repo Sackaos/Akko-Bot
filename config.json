@@ -41,6 +41,13 @@
             }
         },
         {
+            "request": "fire",
+            "response": {
+                "text": "https://instagram.fsdv4-1.fna.fbcdn.net/v/t51.2885-15/e35/122042319_188140969574421_6772790975109447335_n.jpg?_nc_ht=instagram.fsdv4-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=uyeCDeOE4BIAX9vI9dI&tp=1&oh=ea0bd9adde498dc4f4e2aa8dc67e4682&oe=603B55AA",
+                "includes": true
+            }
+        },
+        {
             "request": "thats my phrase",
             "response": {
                 "text": "thats it im out",
