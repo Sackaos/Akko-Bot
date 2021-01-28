@@ -13,7 +13,19 @@ add a `discordKey.json` in the main folder with:
 
 ```
 {
-    "key":"your-discord-bot-token"
+    "botToken": "your-discord-bot-token",
+    "serverID": "",
+    "channelsID": {
+        "logger": "",
+        "main": "",
+        "debug": ""
+    },
+    "roles": [{
+        "name":"",
+        "type":"superadmin|developer|admin",
+        "id":""
+    }
+    ]
 }
 ```
 
