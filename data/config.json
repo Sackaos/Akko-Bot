@@ -1,4 +1,34 @@
 {
+    "bot": {
+        "name": "Akko",
+        "commandPrefixs": ["kk", "akko"]
+    },
+    "commands": [
+        {
+            "name": "help",
+            "commands": [
+                "help", "h"
+            ],
+            "doc": "The help command will tell you how to use other command.",
+            "docExt": "You can get the entire list of command or just the info you need on a particular command",
+            "usage": "|prefix| |name| <|arguments|> <command name> <argument of command>",
+            "arguments": [
+                {
+                    "name": "verbose flag",
+                    "commands": [
+                        "-v",
+                        "--verbose",
+                        "--talkative"
+                    ],
+                    "optional":true,
+                    "doc": "Call the flag to get a detailed explantaion of the command.",
+                    "docExt": "",
+                    "usage": "|prefix| help |command|",
+                    "arguments": []
+                }
+            ]
+        }
+    ],
     "emoji": {
         "emojiCreate": {
             "response": "New emoji has been added",
@@ -47,43 +77,5 @@
                 "includes": false
             }
         }
-    ],
-    "help": {
-        "description": "This is the help command.\n**Usage:** `~help (optional)<arg> (optional)<arg> ...`\n",
-        "arguments": [
-            {
-                "name": "p",
-                "description": "this is the p command",
-                "arguments": [
-                    {
-                        "name": "v",
-                        "description": "this is the v argument",
-                        "arguments": [
-                            {
-                                "name": "bassboosted",
-                                "description": "the bass is very loud"
-                            },
-                            {
-                                "name": "earrip",
-                                "description": "this is very nice for the ears"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "q",
-                "description": "this is the q command",
-                "arguments": []
-            }
-        ]
-    },
-    "channels" : {
-        "logger" : "745259101130457139",
-        "main" : "744314896468148318",
-        "spam": "745259101130457139"
-    },
-    "misc": {
-        "botPrefix" : "akko"
-    }
+    ]
 }
