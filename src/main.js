@@ -16,9 +16,13 @@ const mainDiscord = () => {
 
   // INIT LISTENER
   client.once("ready", () => {
+    if (client.user.username != data.BOT_NAME)
+      client.user.setUsername(data.BOT_NAME);
     discordUtility.sendMessageToChannel(
       client,
-      `${data.BOT_NAME} lives!`,
+      `**${data.BOT_NAME} lives!**\nCall me with: ${data.BOT_PREFIXES.join(
+        " | "
+      )}`,
       data.LOGGER_CHANNEL
     );
     console.log(`${data.BOT_NAME} is ready!`);

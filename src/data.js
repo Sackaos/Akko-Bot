@@ -92,6 +92,10 @@ const loadCommandsData = () => {
   return retrieveJSONData(paths.CONFIG_PATH, ["commands"]);
 };
 
+const loadRolesData = () => {
+  return retrieveJSONData(paths.KEYS_PATH, ["roles"]);
+};
+
 // === PUBLIC CONST ===
 const BOT_NAME = retrieveJSONData(paths.CONFIG_PATH, ["bot", "name"]);
 const BOT_TOKEN = retrieveJSONData(paths.KEYS_PATH, ["botToken"]);
@@ -127,4 +131,5 @@ module.exports = {
   loadMessageHistory,
   loadMessagesData,
   loadCommandsData,
+  loadRolesData,
 };

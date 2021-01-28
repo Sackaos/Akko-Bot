@@ -1,7 +1,7 @@
 {
     "bot": {
-        "name": "Akko",
-        "commandPrefixs": ["kk", "akko"]
+        "name": "Pissbot",
+        "commandPrefixs": ["ss", "piss", "~"]
     },
     "commands": [
         {
@@ -14,7 +14,7 @@
             "usage": "|prefix| |name| <|arguments|> <command name> <argument of command>",
             "arguments": [
                 {
-                    "name": "verbose flag",
+                    "name": "verbose",
                     "commands": [
                         "-v",
                         "--verbose",
@@ -24,6 +24,50 @@
                     "doc": "Call the flag to get a detailed explantaion of the command.",
                     "docExt": "",
                     "usage": "|prefix| help |command|",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "status",
+            "commands": [
+                "status", "sts"
+            ],
+            "doc": "The status command will tell you if you are an admin and at what rank.",
+            "docExt": "",
+            "usage": "|prefix| |name|",
+            "arguments": []
+        },
+        {
+            "name": "last",
+            "commands": [
+                "last"
+            ],
+            "doc": "The last command will show you the last deleted message.",
+            "docExt": "If you want you can give it a number as argument to show more than one message.\n If you put in -a or --all it will show you all the memorized hidden secret of the world MUHAHAH---",
+            "usage": "|prefix| |name| <num,-a,--a>",
+            "arguments": [
+                {
+                    "name": "all",
+                    "commands": [
+                        "-a",
+                        "--all"
+                    ],
+                    "optional":true,
+                    "doc": "Call the flag to get all the deleted messages.",
+                    "docExt": "",
+                    "usage": "|prefix| last -a",
+                    "arguments": []
+                },
+                {
+                    "name": "number",
+                    "commands": [
+                        "<number>"
+                    ],
+                    "optional":true,
+                    "doc": "Add the number to get this nubmer of deleted messages",
+                    "docExt": "",
+                    "usage": "|prefix| last <number>",
                     "arguments": []
                 }
             ]

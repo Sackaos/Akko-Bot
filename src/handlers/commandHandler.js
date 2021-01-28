@@ -1,4 +1,6 @@
 const data = require("../data");
+const { statusCmdHandler } = require("./commands/status");
+const { helpCmdHandler } = require("./commands/help");
 
 //PRIVATE METHODS
 const parseCommand = (cmd) => {
@@ -9,23 +11,36 @@ const parseCommand = (cmd) => {
   return { command, args };
 };
 
-const commandDispatcher = (cmd, args) => {
+const callAppropirateCmdHandler = (cmdName, args, messageObj) => {
+  switch (cmdName) {
+    case "help":
+      helpCmdHandler(args, messageObj);
+      break;
+    case "status":
+      statusCmdHandler(args, messageObj);
+      break;
+  }
+};
+
+const commandDispatcher = ({ command, args }, messageObj) => {
   const commandsData = data.loadCommandsData();
 
   for (let i = 0; i < commandsData.length; i++) {
     const commandData = commandsData[i];
-    if (commandData.commands.includes(cmd)) {
-      console.log("you asked for ", commandData.name);
+    if (commandData.commands.includes(command)) {
+      callAppropirateCmdHandler(commandData.name, args, messageObj);
       return;
     }
   }
-  console.log("cmd not found -- ", cmd);
+  messageObj.channel.send(
+    `**${command}** is not a command for ${data.BOT_NAME}, you fool!`
+  );
 };
 
 //PUBLIC METHODS
 const commandHandler = (cmd, messageObj, client) => {
-  const { command, args } = parseCommand(cmd);
-  commandDispatcher(command, args);
+  const cmdArgs = parseCommand(cmd);
+  commandDispatcher(cmdArgs, messageObj);
 };
 
 module.exports = { commandHandler };
