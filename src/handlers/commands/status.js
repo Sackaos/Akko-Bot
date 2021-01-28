@@ -11,7 +11,7 @@ const statusCmdHandler = (args, messageObj) => {
           response += `Ohh a little baby admin!`;
           break;
         case "superadmin":
-          response += `${role.Data}-dono! I will do as you command!`;
+          response += `${roleData.name}-dono! I will do as you command!`;
           break;
         case "developer":
           response += `My Lord! My Creator! I'm just a ${data.BOT_NAME} for you!`;
