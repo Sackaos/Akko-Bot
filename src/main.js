@@ -78,11 +78,11 @@ const mainDiscord = () => {
   const client = new Discord.Client();
 
   client.once("ready", () => {
-    // discordUtility.sendMsgToChannel(
-    //   client,
-    //   "Akko lives!",
-    //   discordUtility.LOGGER_CHANNEL
-    // );
+    discordUtility.sendMsgToChannel(
+      client,
+      "Akko lives!",
+      discordUtility.LOGGER_CHANNEL
+    );
     console.log("Akko is ready!");
   });
 
