@@ -1,13 +1,18 @@
 {
     "bot": {
         "name": "Akko Bot",
-        "commandPrefixs": ["kk", "akko", "~"]
+        "commandPrefixs": [
+            "akko",
+            "kk",
+            "~"
+        ]
     },
     "commands": [
         {
             "name": "help",
             "commands": [
-                "help", "h"
+                "help",
+                "h"
             ],
             "doc": "The help command will tell you how to use other command.",
             "docExt": "You can get the entire list of command or just the info you need on a particular command",
@@ -20,7 +25,7 @@
                         "--verbose",
                         "--talkative"
                     ],
-                    "optional":true,
+                    "optional": true,
                     "doc": "Call the flag to get a detailed explantaion of the command.",
                     "docExt": "",
                     "usage": "|prefix| help |command|",
@@ -31,10 +36,24 @@
         {
             "name": "status",
             "commands": [
-                "status", "sts"
+                "status",
+                "sts"
             ],
             "doc": "The status command will tell you if you are an admin and at what rank.",
             "docExt": "",
+            "usage": "|prefix| |name|",
+            "arguments": []
+        },
+        {
+            "name": "derpyface",
+            "commands": [
+                "derpy",
+                "wdf",
+                "weekly-derpy-face",
+                "derpy-face"
+            ],
+            "doc": "The derpyface command will send a weekly derpy face",
+            "docExt": "Send a derpyface only if a week has elapsed between calls.",
             "usage": "|prefix| |name|",
             "arguments": []
         },
@@ -53,7 +72,7 @@
                         "-a",
                         "--all"
                     ],
-                    "optional":true,
+                    "optional": true,
                     "doc": "Call the flag to get all the deleted messages.",
                     "docExt": "",
                     "usage": "|prefix| last -a",
@@ -64,7 +83,7 @@
                     "commands": [
                         "<number>"
                     ],
-                    "optional":true,
+                    "optional": true,
                     "doc": "Add the number to get this nubmer of deleted messages",
                     "docExt": "",
                     "usage": "|prefix| last <number>",

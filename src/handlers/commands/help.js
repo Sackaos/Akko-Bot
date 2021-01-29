@@ -11,17 +11,35 @@ const getCmdData = (cmdName) => {
   return null;
 };
 
+const parseUsage = (usageText, cmdName) => {
+  const firstPrefix = data.BOT_PREFIXES[0];
+  let parsed = "";
+  parsed = usageText.replace("|prefix|", firstPrefix);
+  parsed = parsed.replace("|name|", cmdName);
+  return parsed;
+};
+
 const helpCmdHandler = (args, messageObj) => {
-  if (args.length) {
-  } else {
-    const cmdData = getCmdData("help");
-    let response = cmdData.doc;
-    if (args.includes("-v")) {
-      response += "\n" + cmdData.docExt;
-    }
-    response += "\n**Usage:** " + cmdData.usage;
-    messageObj.channel.send(response);
+  const cmdData = getCmdData("help");
+  let response = cmdData.doc;
+  if (args.includes("-v")) {
+    response += "\n" + cmdData.docExt;
   }
+  response += "\n**Usage:** " + cmdData.usage;
+
+  commandsData = data.loadCommandsData();
+  response += "\n";
+  for (let i = 0; i < commandsData.length; i++) {
+    const cmd = commandsData[i];
+    response += `\t**${cmd.name}**\t\`${cmd.commands.join(" | ")}\`\t${
+      cmd.doc
+    }`;
+    response +=
+      args.includes("-v") && cmd.docExt != "" ? `\n\t${cmd.docExt}` : "";
+    response += `\n\t**Usage:** ${parseUsage(cmd.usage, cmd.commands[0])}`;
+    response += "\n\n";
+  }
+  messageObj.channel.send(response);
 };
 
 module.exports = { helpCmdHandler };

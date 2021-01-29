@@ -1,6 +1,7 @@
 const data = require("../data");
 const { statusCmdHandler } = require("./commands/status");
 const { helpCmdHandler } = require("./commands/help");
+const { derpyfaceCmdHandler } = require("./commands/derpyface");
 
 //PRIVATE METHODS
 const parseCommand = (cmd) => {
@@ -18,6 +19,12 @@ const callAppropirateCmdHandler = (cmdName, args, messageObj) => {
       break;
     case "status":
       statusCmdHandler(args, messageObj);
+      break;
+    case "derpyface":
+      derpyfaceCmdHandler(args, messageObj);
+      break;
+    case "last":
+      messageObj.channel.send("last is in progress");
       break;
   }
 };
