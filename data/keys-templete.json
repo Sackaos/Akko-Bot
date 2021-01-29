@@ -1,0 +1,15 @@
+{
+    "botToken": "your-bot-token-thingy",
+    "serverID": "",
+    "channelsID": {
+        "logger": "",
+        "main": "",
+        "debug": ""
+    },
+    "roles": [{
+        "name":"",
+        "type":"superadmin | developer | admin | baby",
+        "id":""
+    }
+    ]
+}

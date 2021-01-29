@@ -4,7 +4,7 @@ const path = require("path");
 
 const loadEmojiJson = () => {
   return JSON.parse(
-    fs.readFileSync(path.join(__dirname, "../../", "config.json"))
+    fs.readFileSync(path.join(__dirname, "../../data", "config.json"))
   ).emoji;
 };
 
@@ -15,7 +15,7 @@ const emojiCreateHandler = (emoji, client) => {
   if (emojiJSON.emojiCreate.showEmoji)
     msgToSend += `<:${emoji.name}:${emoji.id}>`;
 
-  discordUtility.sendMsgToChannel(
+  discordUtility.sendMessageToChannel(
     client,
     msgToSend,
     discordUtility.LOGGER_CHANNEL
@@ -27,7 +27,7 @@ const emojiDeleteHandler = (emoji, client) => {
   let msgToSend = emojiJSON.emojiDelete.response;
   msgToSend = msgToSend.replace("|emojiname|", emoji.name);
 
-  discordUtility.sendMsgToChannel(
+  discordUtility.sendMessageToChannel(
     client,
     msgToSend,
     discordUtility.LOGGER_CHANNEL
@@ -40,7 +40,7 @@ const emojiUpdateHandler = (oldEmoji, newEmoji, client) => {
   msgToSend = msgToSend.replace("|oldemojiname|", oldEmoji.name);
   msgToSend = msgToSend.replace("|newemojiname|", newEmoji.name);
 
-  discordUtility.sendMsgToChannel(
+  discordUtility.sendMessageToChannel(
     client,
     msgToSend,
     discordUtility.LOGGER_CHANNEL

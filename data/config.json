@@ -1,0 +1,162 @@
+{
+    "bot": {
+        "name": "Akko Bot",
+        "commandPrefixs": [
+            "akko",
+            "kk",
+            "~"
+        ]
+    },
+    "commands": [
+        {
+            "name": "help",
+            "commands": [
+                "help",
+                "h"
+            ],
+            "doc": "The help command will tell you how to use other command.",
+            "docExt": "You can get the entire list of command or just the info you need on a particular command",
+            "usage": "|prefix| |name| <|arguments|> <command name> <argument of command>",
+            "arguments": [
+                {
+                    "name": "verbose",
+                    "commands": [
+                        "-v",
+                        "--verbose",
+                        "--talkative"
+                    ],
+                    "optional": true,
+                    "doc": "Call the flag to get a detailed explantaion of the command.",
+                    "docExt": "",
+                    "usage": "|prefix| help |command|",
+                    "arguments": []
+                }
+            ]
+        },
+        {
+            "name": "status",
+            "commands": [
+                "status",
+                "sts"
+            ],
+            "doc": "The status command will tell you if you are an admin and at what rank.",
+            "docExt": "",
+            "usage": "|prefix| |name|",
+            "arguments": []
+        },
+        {
+            "name": "delete",
+            "commands": [
+                "delete",
+                "del"
+            ],
+            "doc": "no doc on this",
+            "docExt": "",
+            "usage": "|prefix| |name|",
+            "arguments": []
+        },
+        {
+            "name": "derpyface",
+            "commands": [
+                "derpy",
+                "wdf",
+                "weekly-derpy-face",
+                "derpy-face"
+            ],
+            "doc": "The derpyface command will send a weekly derpy face",
+            "docExt": "Send a derpyface only if a week has elapsed between calls.",
+            "usage": "|prefix| |name|",
+            "arguments": []
+        },
+        {
+            "name": "last",
+            "commands": [
+                "last"
+            ],
+            "doc": "The last command will show you the last deleted message.",
+            "docExt": "If you want you can give it a number as argument to show more than one message.\n If you put in -a or --all it will show you all the memorized hidden secret of the world MUHAHAH---",
+            "usage": "|prefix| |name| <num,-a,--a>",
+            "arguments": [
+                {
+                    "name": "all",
+                    "commands": [
+                        "-a",
+                        "--all"
+                    ],
+                    "optional": true,
+                    "doc": "Call the flag to get all the deleted messages.",
+                    "docExt": "",
+                    "usage": "|prefix| last -a",
+                    "arguments": []
+                },
+                {
+                    "name": "number",
+                    "commands": [
+                        "<number>"
+                    ],
+                    "optional": true,
+                    "doc": "Add the number to get this nubmer of deleted messages",
+                    "docExt": "",
+                    "usage": "|prefix| last <number>",
+                    "arguments": []
+                }
+            ]
+        }
+    ],
+    "emoji": {
+        "emojiCreate": {
+            "response": "New emoji has been added",
+            "showEmoji": true
+        },
+        "emojiDelete": {
+            "response": "Sadly, The :|emojiname|: has been deleted"
+        },
+        "emojiUpdate": {
+            "response": ":|oldemojiname|: has been changed to :|newemojiname|:"
+        }
+    },
+    "messages": [
+        {
+            "request": "this is a bucket",
+            "response": {
+                "text": "***DEAR GOD!***\nhttps://www.youtube.com/watch?v=L8FmQoSFys0",
+                "includes": true
+            }
+        },
+        {
+            "request": "hehe",
+            "response": {
+                "text": "***EHE TE NANDAYO***",
+                "includes": true
+            }
+        },
+        {
+            "request": "ping",
+            "response": {
+                "text": "pong",
+                "includes": false
+            }
+        },
+        {
+            "request": "ehe te nandayo",
+            "response": {
+                "text": "***THATS MY PHRASE*** :anger:",
+                "includes": false
+            }
+        },
+        {
+            "request": "thats my phrase",
+            "response": {
+                "text": "that's it im out",
+                "includes": false
+            }
+        },
+        {
+            "request": "aquin",
+            "response": {
+                "text": "https://instagram.fsdv4-1.fna.fbcdn.net/v/t51.2885-15/e35/122042319_188140969574421_6772790975109447335_n.jpg?_nc_ht=instagram.fsdv4-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=uyeCDeOE4BIAX9vI9dI&tp=1&oh=ea0bd9adde498dc4f4e2aa8dc67e4682&oe=603B55AA",
+                "includes": true
+            }
+        }
+    ]
+}
