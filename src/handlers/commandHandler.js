@@ -2,6 +2,8 @@ const data = require("../data");
 const { statusCmdHandler } = require("./commands/status");
 const { helpCmdHandler } = require("./commands/help");
 const { derpyfaceCmdHandler } = require("./commands/derpyface");
+const { lastCmdHandler } = require("./commands/last");
+const { deleteCmdHandler } = require("./commands/delete");
 
 //PRIVATE METHODS
 const parseCommand = (cmd) => {
@@ -12,7 +14,7 @@ const parseCommand = (cmd) => {
   return { command, args };
 };
 
-const callAppropirateCmdHandler = (cmdName, args, messageObj) => {
+const callAppropirateCmdHandler = (cmdName, args, messageObj, client) => {
   switch (cmdName) {
     case "help":
       helpCmdHandler(args, messageObj);
@@ -24,18 +26,21 @@ const callAppropirateCmdHandler = (cmdName, args, messageObj) => {
       derpyfaceCmdHandler(args, messageObj);
       break;
     case "last":
-      messageObj.channel.send("last is in progress");
+      lastCmdHandler(args, messageObj, client);
+      break;
+    case "delete":
+      deleteCmdHandler(args, messageObj);
       break;
   }
 };
 
-const commandDispatcher = ({ command, args }, messageObj) => {
+const commandDispatcher = ({ command, args }, messageObj, client) => {
   const commandsData = data.loadCommandsData();
 
   for (let i = 0; i < commandsData.length; i++) {
     const commandData = commandsData[i];
     if (commandData.commands.includes(command)) {
-      callAppropirateCmdHandler(commandData.name, args, messageObj);
+      callAppropirateCmdHandler(commandData.name, args, messageObj, client);
       return;
     }
   }
@@ -47,7 +52,7 @@ const commandDispatcher = ({ command, args }, messageObj) => {
 //PUBLIC METHODS
 const commandHandler = (cmd, messageObj, client) => {
   const cmdArgs = parseCommand(cmd);
-  commandDispatcher(cmdArgs, messageObj);
+  commandDispatcher(cmdArgs, messageObj, client);
 };
 
 module.exports = { commandHandler };

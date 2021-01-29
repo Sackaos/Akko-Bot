@@ -45,6 +45,17 @@
             "arguments": []
         },
         {
+            "name": "delete",
+            "commands": [
+                "delete",
+                "del"
+            ],
+            "doc": "no doc on this",
+            "docExt": "",
+            "usage": "|prefix| |name|",
+            "arguments": []
+        },
+        {
             "name": "derpyface",
             "commands": [
                 "derpy",

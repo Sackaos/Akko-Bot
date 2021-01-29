@@ -95,9 +95,7 @@ const loadMessageHistory = () => {
     json = JSON.stringify({ history: [] });
     fs.writeFileSync(paths.MEMORY_PATH, json);
   }
-  return JSON.parse(
-    fs.readFileSync(paths.MEMORY_PATH, "utf8", (err, data) => {})
-  ).history;
+  return retrieveJSONData(paths.MEMORY_PATH, ["history"]);
 };
 
 const deleteHistoryData = () => {
