@@ -117,7 +117,7 @@
         {
             "request": "thats my phrase",
             "response": {
-                "text": "thats it im out",
+                "text": "that's it im out",
                 "includes": false
             }
         },

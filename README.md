@@ -3,7 +3,6 @@
 # TODO List
 
 - take the trash out.
-- weekly derpy face (from pc).(do WHERE IS THE WEEKLY DERP to check)
 - weekly blessed images form urls.
 - sing songs
 

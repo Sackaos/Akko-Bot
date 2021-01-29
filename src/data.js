@@ -10,7 +10,7 @@ const fs = require("fs");
  * @param {fullpath to json file} path
  * @param {liss of string} valueTree
  */
-const retrieveJSONData = (path, valueTree) => {
+const retrieveJSONData = (path, valueTree = []) => {
   const json = JSON.parse(fs.readFileSync(path));
   let data = json;
   for (let i = 0; i < valueTree.length; i++) {
@@ -20,6 +20,38 @@ const retrieveJSONData = (path, valueTree) => {
 };
 
 // === PUBLIC METHODS ===
+const getRandomDerpyFace = () => {
+  const files = fs.readdirSync(paths.DERPYFACES_DIR_PATH);
+  let face =
+    paths.DERPYFACES_DIR_PATH +
+    "/" +
+    files[Math.floor(Math.random() * files.length)];
+
+  return face;
+};
+
+const loadLastDate = () => {
+  return retrieveJSONData(paths.MEMORY_PATH, ["lastDate"]);
+};
+
+const saveLastDate = (newLastDate) => {
+  fs.readFile(paths.MEMORY_PATH, "utf8", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      //now it an object
+      obj = JSON.parse(data);
+
+      //add some data
+      obj.lastDate = newLastDate;
+
+      json = JSON.stringify(obj); //convert it back to json
+
+      fs.writeFile(paths.MEMORY_PATH, json, "utf8", (err) => {}); // write it back
+    }
+  });
+};
+
 const saveMessageToDatabase = (msg) => {
   fs.readFile(paths.MEMORY_PATH, "utf8", (err, data) => {
     if (err) {
@@ -132,4 +164,7 @@ module.exports = {
   loadMessagesData,
   loadCommandsData,
   loadRolesData,
+  loadLastDate,
+  saveLastDate,
+  getRandomDerpyFace,
 };
